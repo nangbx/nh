@@ -1,0 +1,140 @@
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    if (a == 0)
+    {
+        if (b == 0)
+        {
+            if (c == 0)
+                cout << "phuong trinh co vo so nghiem";
+            else
+                cout << "phuong trinh vo nghiem";
+        }
+        else
+        {
+            double k = -c * 1.0 / b;
+            if (k >= 0)
+            {
+                if (k > 0)
+                {
+                    cout << "phuong trinh co 2 nghiem" << endl;
+                    cout << fixed << setprecision(5) << -sqrt(k) << " " << sqrt(k);
+                }
+                else
+                {
+                    cout << "phuong trinh co 1 nghiem" << endl;
+                    cout << fixed << setprecision(5) << 0.00000;
+                }
+            }
+            else
+            {
+                cout << "phuong trinh vo nghiem";
+            }
+        }
+    }
+    else
+    {
+        double delta = pow(b, 2) - 4 * a * c;
+        if (delta == 0)
+        {
+            double t1 = -b * 1.0 / (2 * a);
+            if (t1 > 0)
+            {
+                cout << "phuong trinh co 2 nghiem" << endl;
+                cout << fixed << setprecision(5) << -sqrt(t1) << " " << sqrt(t1);
+            }
+            else
+            {
+                if (t1 == 0)
+                {
+                    cout << "phuong trinh co 1 nghiem" << endl;
+                    cout << fixed << setprecision(5) << 0.00000;
+                }
+                else
+                    cout << "phuong trinh vo nghiem";
+            }
+        }
+        else
+        {
+            if (delta < 0)
+                cout << "phuong trinh vo nghiem";
+            else
+            {
+                double t1 = (-b + sqrt(delta)) / (2 * a);
+                double t2 = (-b - sqrt(delta)) / (2 * a);
+                if (t1 > 0 && t2 > 0)
+                {
+                    cout << "phuong trinh co 4 nghiem" << endl;
+                    if (t1 > t2)
+                    {
+                        cout << fixed << setprecision(5) << -sqrt(t1) << " " << -sqrt(t2) << " " << sqrt(t2) << " " << sqrt(t1);
+                    }
+                    else
+                    {
+                        cout << fixed << setprecision(5) << -sqrt(t2) << " " << -sqrt(t1) << " " << sqrt(t1) << " " << sqrt(t2);
+                    }
+                }
+                else
+                {
+                    if (t1 == 0 || t2 == 0)
+                    {
+                        if (t1 == 0)
+                        {
+                            if (t2 > 0)
+                            {
+                                cout << "phuong trinh co 3 nghiem" << endl;
+                                cout << fixed << setprecision(5) << -sqrt(t2) << " " << 0.00000 << " " << sqrt(t2);
+                            }
+                            else
+                            {
+                                cout << "phuong trinh co 1 nghiem" << endl;
+                                cout << fixed << setprecision(5) << 0.00000;
+                            }
+                        }
+                        else
+                        {
+                            if (t1 > 0)
+                            {
+                                cout << "phuong trinh co 3 nghiem" << endl;
+                                cout << fixed << setprecision(5) << -sqrt(t1) << " " << 0.00000 << " " << sqrt(t1);
+                            }
+                            else
+                            {
+                                cout << "phuong trinh co 1 nghiem" << endl;
+                                cout << fixed << setprecision(5) << 0.00000;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (t1 < 0 && t2 > 0)
+                        {
+                            cout << "phuong trinh co 2 nghiem" << endl;
+                            cout << fixed << setprecision(5) << -sqrt(t2) << " " << sqrt(t2);
+                        }
+                        else
+                        {
+                            if (t1 > 0 && t2 < 0)
+                            {
+                                cout << "phuong trinh co 2 nghiem" << endl;
+                                cout << fixed << setprecision(5) << -sqrt(t1) << " " << sqrt(t1);
+                            }
+                            else
+                            {
+                                cout << "phuong trinh vo nghiem";
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
